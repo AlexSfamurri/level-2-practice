@@ -14,8 +14,12 @@ console.log(exampleName, exampleYears, exampleIsOpen);
 console.log(typeof exampleName);     // typeof tells you the type
 
 // TODO: Make 3 variables for YOUR truck: a name, a number, and a true/false.
+const brandName = "Pizza on Wheels";
+let yearsOfOperation = 2;
+let openCloseBool = true;
 // TODO: console.log them, and log the typeof each one.
-
+console.log(brandName, yearsOfOperation, openCloseBool);
+console.log(typeof brandName, typeof yearsOfOperation, typeof openCloseBool);
 
 // ---------- Step 2: An array (a list) ----------
 // Example:
@@ -25,7 +29,8 @@ console.log(exampleMenu.length);     // how many items
 
 // TODO: Make an array of 3 or more things YOUR truck sells.
 // TODO: Log the first item, the last item, and how many items there are.
-
+const brandMenu = ["special", "pepperoni", "cheese"];
+console.log(brandMenu[0], brandMenu[brandMenu.length - 1], brandMenu.length);
 
 // ---------- Step 3: An object (one thing with details) ----------
 // Example:
@@ -35,7 +40,24 @@ console.log(exampleItem["price"]);   // bracket notation
 
 // TODO: Make an object for one of YOUR menu items (name, price, spicy).
 // TODO: Log one property with dot notation and one with bracket notation.
-
+const specialZza = {
+  name: "special", 
+  price: 8.5, 
+  spicy: true
+}
+console.log(specialZza.name);
+console.log(specialZza["price"]);
+const pepperoniZza = {
+  name: "pepperoni",
+  price: 6,
+  spicy:true
+}
+const cheeseZza = {
+  name: "cheese",
+  price: 6,
+  spicy: false
+}
+const menuItemList = [specialZza, pepperoniZza, cheeseZza];
 
 // ---------- Step 4: A function ----------
 // Example:
@@ -45,9 +67,34 @@ function addTip(price, tip) {
 console.log(addTip(10, 2));          // 12
 
 // TODO: Write a function orderTotal(price, quantity) that RETURNS price * quantity.
-// TODO: Before you run it, guess what orderTotal(4.5, 3) gives. Then log it.
-
-
+// TODO: Before you run it, guess what orderTotal(4.5, 3) gives. 13.5 Then log it.
+function orderTotal(price, quantity){
+  return price * quantity;
+}
+console.log(orderTotal(4.5, 3));
 // ---------- Extra practice (if you finish early) ----------
 // 1. Change your menu item's price AFTER you made the object, then log it again.
 // 2. Write isCheap(price): return "cheap!" if price is under 5, otherwise "fancy".
+cheeseZza.price = 4;
+console.log(cheeseZza.price);
+
+const isCheap = function(price){
+  if(price < 5){
+    return "cheap!";
+  }else{
+    return "fancy"
+  }
+};
+const orderUp = function(recipet = [{name: "empty", price: 0}] ){
+  if(recipet[0].name != "empty"){
+    let totalPrice = 0;
+    let totalItems = "";
+    for(let i = 0; i < recipet.length; i++){
+      totalPrice += recipet[i].price;
+      totalItems += recipet[i].name + ": " + recipet[i].price + " " + isCheap(recipet[i].price) + " \n";
+    }
+    totalItems += "Total Price: " + totalPrice;
+    return totalItems;
+  }
+  return 0;
+};
