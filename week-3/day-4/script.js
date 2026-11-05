@@ -63,6 +63,33 @@ console.log("Items:", count);
 
 
 // ---------- Extra practice (if you finish early) ----------
-// 1. Count how many items cost less than $5 (a loop + an if).
-// 2. Find the most expensive item. Hint: start with  let most = menu[0];
-//    then use a loop + an if to check each item's price.
+
+// EXTRA 1: Count how many items cost less than $5.
+// It's the Step 4 count example, but only count when the price is small.
+// Copy this outline below it and fill in the two blanks:
+//
+//   let cheap = 0;
+//   for (let i = 0; i < menu.length; i++) {
+//     if (menu[i].price < 5) {
+//       ___ add 1 to cheap ___
+//     }
+//   }
+//   console.log("Under $5:", cheap);
+//
+// Check: the Taco Rocket menu logs  Under $5: 2  (Taco and Churro).
+
+
+// EXTRA 2: Find the most expensive item.
+// Idea: pretend the first item is the most expensive. Then check every item.
+// If you find a pricier one, remember that one instead.
+// Copy this outline and fill in the two blanks:
+//
+//   let most = menu[0];
+//   for (let i = 0; i < menu.length; i++) {
+//     if (___ this item's price is bigger than most.price ___) {
+//       ___ make most this item ___
+//     }
+//   }
+//   console.log("Most expensive:", most.name, most.price);
+//
+// Check: the Taco Rocket menu logs  Most expensive: Burrito 9
