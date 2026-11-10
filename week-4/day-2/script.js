@@ -9,9 +9,10 @@
 
 // First: replace this menu with YOUR truck's menu (keep the same shape).
 const menu = [
-  { name: "Taco", price: 4.5 },
-  { name: "Burrito", price: 9 },
-  { name: "Nachos", price: 6.25 },
+  { name: "SpecialZza", price: 8.5 },
+  { name: "PepperoniZza", price: 4.5 },
+  { name: "CheeseZza", price: 4 },
+  { name: "GarbageZza", price: 12}
 ];
 
 // getElementById finds ONE element by its id. Same job as querySelector("#card-area"),
@@ -23,19 +24,22 @@ const area = document.getElementById("card-area");
 // EXAMPLE: 4 moves. Make it, give it classes, give it text, put it on the page.
 const card = document.createElement("div");   // 1. make a new <div> (not on the page yet!)
 card.className = "card p-3";                   // 2. give it Bootstrap classes
-card.textContent = "Today's special";          // 3. give it text
+card.textContent =  "Today's Special";    // 3. give it text
 area.appendChild(card);                        // 4. put it inside #card-area. Now you can see it.
 
 // YOUR TURN: make a second card that says your truck's name.
 // Change: card → card2 (4 places), and the text.
-
+const truckNameCard = document.createElement("div");
+truckNameCard.className = "card p-3";
+truckNameCard.textContent = "Pizza on Wheels";
+area.appendChild(truckNameCard);
 
 // ---------- Step 2: A card for EVERY item ----------
 // EXAMPLE: the same 4 moves, inside forEach. One card per menu item.
 menu.forEach(function (item) {
   const itemCard = document.createElement("div");
   itemCard.className = "card p-3";
-  itemCard.textContent = item.name;
+  itemCard.textContent = item.name + ": $" + item.price.toFixed(2);
   area.appendChild(itemCard);
 });
 
