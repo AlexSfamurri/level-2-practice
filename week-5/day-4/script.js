@@ -46,9 +46,26 @@ async function loadRecipe() {
     ready.className = "f2-3 h4";
     ready.textContent = `Ready in ${recipe.cookTimeMinutes} minutes!`;
 
+    const ingredients = document.createElement("ul");
+    recipe.ingredients.forEach(ingredient => {
+      const listItem = document.createElement("li");
+      listItem.textContent = ingredient;
+      ingredients.appendChild(listItem);
+    });
+
+    const instructions = document.createElement("ol");
+    recipe.instructions.forEach((step)=>{
+      const listItem = document.createElement("li");
+      listItem.textContent = step;
+      instructions.appendChild(listItem);
+    })
+
     card.appendChild(cuisine);
     card.appendChild(ready);
+    card.appendChild(ingredients);
+    card.appendChild(instructions);
     recipeArea.appendChild(card);
+
   } catch (error){
     statusText.textContent = "Lost Internet Connection!"
     console.error(error);
