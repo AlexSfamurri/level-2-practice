@@ -67,7 +67,7 @@ async function loadRecipe() {
     recipeArea.appendChild(card);
 
   } catch (error){
-    statusText.textContent = "Lost Internet Connection!"
+    statusText.textContent = "Lost Internet Connection!";
     console.error(error);
     return;
   }
