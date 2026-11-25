@@ -36,7 +36,7 @@ async function askRick() {
         "x-goog-api-key": GEMINI_KEY
       },
       body: JSON.stringify({
-        contents: [{ parts: [{ text: `${character} Say hello in one line.` }] }]
+        contents: [{ parts: [{ text: `${character} ${questionBox.value}.` }] }]
       })
     });
     // YOUR TURN: send the user's question instead.
